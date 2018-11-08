@@ -1,5 +1,6 @@
 package Card;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Player {
@@ -9,7 +10,11 @@ public class Player {
     Integer cash = 10;
     String playerClass;
     //warrior / mag
-    List<Card> karty;
+    List<Card> karty = new ArrayList<Card>();
+
+    public void addCard(Card card){
+        karty.add(card);
+    }
 
     public Player(String name, Integer lifePoint, Integer abilityPoint, Integer cash, String playerClass) {
         this.lifePoint = lifePoint;

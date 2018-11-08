@@ -15,12 +15,10 @@ public class TableTop {
 
 
         String pOneClassCode = scanner.nextLine();
-        if(pOneClassCode=="M"){
-            pOneClass="Magician";
-        }
-        else{
-            pOneClass="Warrior";
-        }
+        System.out.println(pOneClassCode);
+
+
+
 
 
         System.out.println("insert second player name");
@@ -29,7 +27,17 @@ public class TableTop {
         String pTwoClassCode = scanner.nextLine();
 
 
-        if(pTwoClassCode=="M"){
+
+
+        if(pOneClassCode.equals("m")){
+            pOneClass="Magician";
+        }
+        else{
+            pOneClass="Warrior";
+        }
+
+
+        if(pTwoClassCode.equals("m")){
             pTwoClass="Magician";
         }
         else{
@@ -37,7 +45,7 @@ public class TableTop {
         }
 
 
-        System.out.println("p1: "+pOneName+" \n class: "+pOneClassCode+" \n\n\n p2: "+pTwoName+" \nclass: "+pOneClass);
+        System.out.println("p1: "+pOneName+" \n class: "+pOneClass+" \n\n\n p2: "+pTwoName+" \nclass: "+pTwoClass);
 
 
 
@@ -47,7 +55,20 @@ public class TableTop {
         generator.prepareBase();
         System.out.println(generator.getProbablyOfStrong());
         List<Card> talia = generator.generate(10);
-        for(Card karta: talia){
+        UserInteface.chooseFirstCards(playerOne,talia);
+        talia.clear();
+        talia = generator.generate(10);
+        UserInteface.chooseFirstCards(playerTwo,talia);
+        talia.clear();
+        System.out.println("\n\nPLAYER ONE "+playerOne.name+" CARDS:");
+
+
+        for(Card karta: playerOne.karty){
+            System.out.println(karta);
+        }
+
+        System.out.println("\n\nPLAYER TWO "+playerTwo.name+" CARDS:");
+        for(Card karta: playerTwo.karty){
             System.out.println(karta);
         }
        // System.out.println(talia);
