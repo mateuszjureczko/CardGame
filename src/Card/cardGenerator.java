@@ -73,8 +73,9 @@ public class cardGenerator {
         this.probablyOfStrong.put(8, 2);
         this.probablyOfStrong.put(9, 2);
         this.probablyOfStrong.put(10, 1);
-        probalityOfType.put("lecznicza", 2);
-        probalityOfType.put("atakujaca", 5);
+        probalityOfType.put("heal", 3);
+        probalityOfType.put("attack", 10);
+        probalityOfType.put("effect", 5);
 
         types.add("lecznicza");
         types.add("atakujaca");
@@ -191,13 +192,13 @@ public class cardGenerator {
 
 
 
-            case "lecznicza":
+            case "heal":
                  suffix = adjectiveListHealSuffix.get(rand.nextInt(adjectiveListHealSuffix.size()));
                  prefix = adjectiveListHealPrefix.get(rand.nextInt(adjectiveListHealPrefix.size()));
                  name = nounListHeal.get(rand.nextInt(nounListHeal.size()));
                 break;
 
-            case "atakujaca":
+            case "attack":
                  suffix = adjectiveListAttackSuffix.get(rand.nextInt(adjectiveListAttackSuffix.size()));
                  prefix = adjectiveListAttackPrefix.get(rand.nextInt(adjectiveListAttackPrefix.size()));
                  name = nounListAttack.get(rand.nextInt(nounListAttack.size()));
@@ -214,6 +215,7 @@ return prefix+" "+name+" "+suffix;
 
         for(int i=0; i<numberOfCards;i++){
             String type=getTheType();
+            System.out.println(type);
             int strongnest = getTheStrongnest();
             String name = getTheName(type);
             //counting number of probality tickets
