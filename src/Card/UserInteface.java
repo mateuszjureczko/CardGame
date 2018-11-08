@@ -10,13 +10,15 @@ public class UserInteface {
         for(int i=0; i<5; i++){
             System.out.println("choose card (1-10)");
             int cardNum = scanner.nextInt();
+            System.out.println(cardNum);
             Card card = deck.get(cardNum-1);
-            if(card == null){
+            System.out.println("---------------\nchosen card: \n"+card+"\n\n--------------------");
+            if(card.type.equals("empty")){
                 i--;
                 System.out.println("choose proper card!");
             }else{
                 player.addCard(card);
-                deck.set(cardNum,null);
+                deck.set(cardNum-1,new Card(0,0,"empty","empty"));
             }
         }
     }
