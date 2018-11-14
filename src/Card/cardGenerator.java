@@ -21,7 +21,6 @@ public class cardGenerator {
     //elem can has 1-10 of Strong
     //probability is 1-10
 
-
     public List<String> getNounListHeal() {
         return nounListHeal;
     }
